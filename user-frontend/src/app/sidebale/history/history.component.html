@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-header text-light" style="background-image: radial-gradient( circle 763px at 18.3% 24.1%,  rgba(255,249,137,1) 7.4%, rgba(226,183,40,1) 58.3% );">
+    <h4 class="text-center">
+      History
+      <button
+        class="badge badge-pill border-0 float-right"
+        (click)="back()"
+      >
+      <i class="lni lni-arrow-left"></i>
+      </button>
+    </h4>
+  </div>
+  <div class="card-body">
+    <div class="card mt-3">
+      <div class="card-header">
+        <h6>
+          Bid History
+          <button
+          class="badge badge-pill border-0 float-right"
+            [routerLink]="['/portal/sidebale/bid-history']" routerLinkActive="router-link-active" 
+          >
+          <i class="lni lni-arrow-right"></i>
+          </button>
+        </h6>
+      </div>
+    </div>
+    <div class="card mt-3">
+      <div class="card-header">
+        <h6 >
+          Starline Bid History
+          <button
+             class="badge badge-pill border-0 float-right"
+            [routerLink]="['/portal/sidebale/starline-bid-history']" routerLinkActive="router-link-active" 
+          >
+            <i class="lni lni-arrow-right"></i>
+          </button>
+        </h6>
+      </div>
+    </div>
+    <div class="card mt-3">
+      <div class="card-header">
+        <h6>
+          Startline Result History
+          <button
+             class="badge badge-pill border-0 float-right"
+            [routerLink]="['/portal/sidebale/starline-result-history']" routerLinkActive="router-link-active" 
+          >
+            <i class="lni lni-arrow-right"></i>
+          </button>
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>

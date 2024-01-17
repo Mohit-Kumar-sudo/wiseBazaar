@@ -1,0 +1,53 @@
+<div class="card">
+   <div class="card-header text-light" style="background-image: radial-gradient( circle 763px at 18.3% 24.1%,  rgba(255,249,137,1) 7.4%, rgba(226,183,40,1) 58.3% );">
+    <h4 class="text-center">
+      List
+      <button
+         class="badge badge-pill border-0 float-right"
+        routerLink="/portal/notification/create"
+      >
+        <i class="fas fa-plus" aria-hidden="true"></i>
+      </button>
+    </h4>
+  </div>
+  <div
+    class="card-body"
+    *ngIf="eventService.notification && eventService.notification.length"
+  >
+    <div class="row">
+      <div class="col-12">
+        <div
+          class="card text-center p-0 m-0 mb-2"
+          *ngFor="let item of eventService.notification"
+        >
+          <div class="card-header">
+            <b>{{ item.title | uppercase }}</b>
+          </div>
+          <div class="card-body text-left">
+            <p>
+              {{ item.desc }}
+            </p>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6">
+              <a
+                class="badge badge-pill badge-primary shadow-none"
+                (click)="edit(item._id)"
+              >
+                <i class="fa fa-pencil-alt fa-2x" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="col-6">
+              <a
+                class="badge badge-danger badge-pill shadow-none"
+                (click)="delete(item._id)"
+              >
+                <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

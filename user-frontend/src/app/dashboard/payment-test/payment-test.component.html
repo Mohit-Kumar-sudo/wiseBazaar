@@ -1,0 +1,58 @@
+<!-- <div id="payu-payment-form">
+    <form action='https://test.payu.in/_payment' method='post' #payUForm="ngForm" (submit)="payWithPayu(payUForm)">
+        <input type="hidden" [(ngModel)]="key" name="key" />
+        <input type="hidden" ngModel name="txnid" [ngModel]="'t6svtqtjRdl4ws'" />
+        <input type="hidden" ngModel name="productinfo" [ngModel]="'iPhone'" />
+        <input type="hidden" ngModel name="amount" [ngModel]="'10'" />
+        <input type="hidden" ngModel name="email" [ngModel]="'test@gmail.com'" />
+        <input type="hidden" ngModel name="firstname" [ngModel]="'Ashish'" />
+        <input type="hidden" ngModel name="lastname" [ngModel]="'Kumar'" />
+        <input type="hidden" ngModel name="surl" [ngModel]="'https://apiplayground-response.herokuapp.com/'" />
+        <input type="hidden" ngModel name="furl" [ngModel]="'https://apiplayground-response.herokuapp.com/'" />
+        <input type="hidden" ngModel name="phone" [ngModel]="'9988776655'" />
+        <input type="hidden" ngModel name="hash" [ngModel]="'eabec285da28fd0e3054d41a4d24fe9f7599c9d0b66646f7a9984303fd6124044b6206daf831e9a8bda28a6200d318293a13d6c193109b60bd4b4f8b09c90972'" />
+        <input type="submit" value="submit"> </form>
+</div> -->
+<div class="card">
+  <div class="card-header">
+    <h4 class="text-center">
+      <i class="fas fa-users"></i>
+      Users
+      <button
+         class="badge badge-pill border-0 float-right"
+        routerLink="/portal/user/list"
+      >
+        <i class="fas fa-user-plus"></i>
+      </button>
+    </h4>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="amount">Add Fund</label>
+          <input
+            type="number"
+            class="form-control"
+            name="amount"
+            [(ngModel)]="amount"
+            id="amount"
+            aria-describedby="amounthelpId"
+            placeholder="Enter Fund"
+          />
+          <small id="amounthelpId" class="form-text text-muted"
+            >Enter Fund</small
+          >
+        </div>
+      </div>
+      <div class="col-auto">
+        <label for="">-</label>
+        <br />
+        <button type="button" (click)="addFund()" class="btn btn-primary">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

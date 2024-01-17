@@ -1,0 +1,249 @@
+<div class="card">
+  <div class="card-header" style="background: #00d2ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3a7bd5,
+    #00d2ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3a7bd5,
+    #00d2ff
+  );">
+    <h4 class="text-center text-white">
+      Starline
+      <button
+         class="badge badge-pill border-0 float-right"
+        routerLink="/portal/kalyan-starline/list"
+      >
+        <i class="fas fa-arrow-alt-circle-left"></i>
+      </button>
+    </h4>
+  </div>
+  <div class="card-body">
+    <form
+      (ngSubmit)="createForm(Createform)"
+      #Createform="ngForm"
+      *ngIf="eventService.eventKalyan"
+    >
+      <div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="eventTime">Event Time</label>
+              <input
+                type="time"
+                class="form-control"
+                name="eventTime"
+                [(ngModel)]="eventService.eventKalyan.eventTime"
+                id="eventTime"
+                aria-describedby="eventTimehelpId"
+                placeholder="Enter Open Time"
+                required
+              />
+              <small id="eventTimehelpId" class="form-text text-muted"
+                >Enter Event Time</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <h6>Notifications</h6>
+            <hr />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="closeTime">Bid Last Time</label>
+              <input
+                type="time"
+                class="form-control"
+                name="closeTime"
+                [(ngModel)]="eventService.eventKalyan.notification[0].closeTime"
+                id="closeTime"
+                aria-describedby="closeTimehelpId"
+                placeholder="Enter Close Time"
+                required
+              />
+              <small id="closeTimehelpId" class="form-text text-muted"
+                >Enter close Time</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="openResultTime">Result Time</label>
+              <input
+                type="time"
+                class="form-control"
+                name="openResultTime"
+                [(ngModel)]="
+                  eventService.eventKalyan.notification[0].openResultTime
+                "
+                id="openResultTime"
+                aria-describedby="openResultTimehelpId"
+                placeholder="Open Result Time"
+                required
+              />
+              <small id="openResultTimehelpId" class="form-text text-muted"
+                >Open Result Time</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="alert">Alert</label>
+            <div class="form-group">
+              <textarea
+                name="alert"
+                [(ngModel)]="eventService.eventKalyan.notification[0].alert"
+                class="form-control"
+                id="alert"
+                cols="30"
+                rows="10"
+              ></textarea>
+              <small id="alerthelpId" class="form-text text-muted"
+                >Enter Alert</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="status">Today Status</label>
+            <div class="form-group">
+              <select
+                name="status"
+                id="status"
+                [(ngModel)]="eventService.eventKalyan.status"
+                class="form-control"
+              >
+                <option value="">--Select--</option>
+                <option value="Closed">Closed</option>
+                <option value="Open">Open</option>
+              </select>
+              <small id="statushelpId" class="form-text text-muted"
+                >Enter Status</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto">
+            <button
+              type="button"
+              (click)="update()"
+              [disabled]="!Createform.form.valid"
+            >
+              <i class="fas fa-save"></i>Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form
+      (ngSubmit)="createForm(Createform)"
+      #Createform="ngForm"
+      *ngIf="!eventService.eventKalyan"
+    >
+      <div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="eventTime">Event Time</label>
+              <input
+                type="time"
+                class="form-control"
+                name="eventTime"
+                ngModel
+                id="eventTime"
+                aria-describedby="eventTimehelpId"
+                placeholder="Enter Open Time"
+                required
+              />
+              <small id="eventTimehelpId" class="form-text text-muted"
+                >Enter Event Time</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <h6>Notifications</h6>
+            <hr />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="openTime">Bid Last Time</label>
+              <input
+                type="time"
+                class="form-control"
+                name="openTime"
+                ngModel
+                id="openTime"
+                aria-describedby="openTimehelpId"
+                placeholder="Enter Open Time"
+                required
+              />
+              <small id="openTimehelpId" class="form-text text-muted"
+                >Enter Open Time</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="openResultTime">Result Time</label>
+              <input
+                type="time"
+                class="form-control"
+                name="openResultTime"
+                ngModel
+                id="openResultTime"
+                aria-describedby="openResultTimehelpId"
+                placeholder="Open Result Time"
+                required
+              />
+              <small id="openResultTimehelpId" class="form-text text-muted"
+                >Open Result Time</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="alert">Alert</label>
+            <div class="form-group">
+              <textarea
+                name="alert"
+                ngModel
+                class="form-control"
+                id="alert"
+                cols="30"
+                rows="10"
+              ></textarea>
+              <small id="alerthelpId" class="form-text text-muted"
+                >Enter Alert</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto">
+            <button type="submit" [disabled]="!Createform.form.valid">
+              <i class="fas fa-save"></i>Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="card">
+  <div class="card-header text-center bg-dark text-capitalize text-light">
+    <h5>
+      StarLine
+      <button
+        class="badge badge-pill badge-primary border-0 float-right"
+        (click)="back()"
+      >
+         <i class="lni lni-arrow-left"></i>
+      </button>
+    </h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-6">
+        <div class="card text-center mt-0 mb-3">
+          <div class="card-body">
+            <a
+              class="text-dark"
+              [routerLink]="[
+                '/portal/kalyan-starline/single-ank/single-ank/' +
+                  eventTime +
+                  '/' +
+                  gameId
+              ]"
+            >
+              <div class="col-auto">
+                <i class="fas fa-dice-one fa-2x"></i>
+                <h5>Single Ank</h5>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card text-center mt-0 mb-3">
+          <a
+            class="text-dark"
+            [routerLink]="[
+              '/portal/kalyan-starline/single-patti/single-patti/' +
+                eventTime +
+                '/' +
+                gameId
+            ]"
+          >
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <i class="fas fa-heart fa-2x"></i>
+                  <h5>Single Patti</h5>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card text-center mt-0 mb-3">
+          <a
+            class="text-dark"
+            [routerLink]="[
+              '/portal/kalyan-starline/double-patti/double-patti/' +
+                eventTime +
+                '/' +
+                gameId
+            ]"
+          >
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <i class="fas fa-heart fa-2x"></i>
+                  <i class="fas fa-heart fa-2x"></i>
+                  <h5>Double Patti</h5>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card text-center mt-0 mb-3">
+          <a
+            class="text-dark"
+            [routerLink]="[
+              '/portal/kalyan-starline/tripple-patti/tripple-patti/' +
+                eventTime +
+                '/' +
+                gameId
+            ]"
+          >
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <i class="fas fa-spa fa-2x"></i>
+                  <h5>Tripple Patti</h5>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+/* body{ */
+    /* background: rgb(250,62,25);
+background: linear-gradient(3deg, rgb(250, 126, 25) 19%, rgb(245, 120, 31) 47%, rgba(255, 233, 35, 0.932) 100%); */
+/* background: rgb(227,255,55); */
+/* background: linear-gradient(122deg, #ACC0FE 30%, rgba(226, 125, 57, 0.925) 60%); */
+/* } */
+.text-orange {
+    --tw-text-opacity: 1;
+    color: rgba(246,68,1,var(--tw-text-opacity));
+}
+
+
+hr{
+    /* height: .5px !important; */
+    color: #ff0020;
+    border-width:0;
+    background-color:#ff0020;
+    /* border: 2px solid #ff0020; */
+}
+.faqs{
+    border: 2px solid #ff0020;
+    border-radius: 10px;
+    font-style: normal;
+}
+.faq{
+    font-size: x-large;
+font-weight: 600;
+}
+/* .card{
+    background: transparent;
+} */
+.card-body{
+    font-weight: 450;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+    background: none;
+}
+.let-rock {
+    border: 2px solid #ff0020;
+    border-radius: 10px;
+    /* font-style: normal; */
+    
+    margin: 5px auto 5px;
+    width: auto;
+    display: block;
+    font-weight: 450;
+    /* font-family: roboto; */
+     /* ,sans-serif; */
+    /* height: 200px; */
+    /* overflow-y: scroll; */
+}
+.t-rock{
+    font-size: x-large;
+font-weight: 600;
+}

@@ -1,0 +1,116 @@
+<div class="card">
+    <div class="card-header text-center">
+      <h5>
+        <button class="btn btn-secondary btn-sm float-left">
+          <i class="fas fa-wallet"></i>
+          - {{ userWallet ? userWallet : '0' }}
+        </button>
+        <button
+          class="badge badge-pill badge-primary border-0 float-right"
+          (click)="back()"
+        >
+           <i class="lni lni-arrow-left"></i>
+        </button>
+      </h5>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="bidCreate(BidCreateform)" #BidCreateform="ngForm">
+        <div class="row">
+          <div class="col-6">
+            <a *ngIf="time">
+              <i class="fas fa-calendar"></i>
+              {{ time.DateString ? time.DateString : '-' }}
+            </a>
+          </div>
+          <div class="col-6">
+            <a> STARLINE {{ params.title | uppercase }} </a>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="singlePatti">Single Patti</label>
+              <input
+                type="tel"
+                class="form-control"
+                name="singlePatti"
+                id="singlePatti"
+                ngModel
+                pattern="[0-9]*"
+                maxlength="3"
+                maxlength="3"
+                aria-describedby="singlePattihelpId"
+                placeholder="Enter patti"
+                required
+              />
+              <small id="singlePattihelpId" class="form-text text-muted"
+                >Enter patti</small
+              >
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="Points">Amount</label>
+              <input
+                type="number"
+                class="form-control"
+                name="points"
+                id="points"
+                ngModel
+                aria-describedby="pointshelpId"
+                placeholder="Enter Amount"
+                required
+              />
+              <small id="pointshelpId" class="form-text text-muted"
+                >Enter Amount</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto">
+            <button
+              class="btn btn-primary btn-rounded"
+              [disabled]="BidCreateform.form.invalid"
+            >
+              ADD
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="card mt-3">
+    <div
+      class="card-body table-responsive"
+      *ngIf="apiService.bidLists.length; else Loading"
+    >
+      <table class="table table-striped table-inverse">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Digits</th>
+            <th>Points</th>
+            <th>Game Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doc of apiService.bidLists; let i = index">
+            <td>
+              <div>
+                {{ doc.userInput.singlePatti }}
+              </div>
+            </td>
+            <td>{{ doc.bidAmount }}</td>
+            <td>Starline-{{ doc.betType }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <ng-template #Loading>
+    <div class="card text-center">
+      <div class="card-body"><i class="fas fa-spinner"></i> NO RECORD FOUND</div>
+    </div>
+  </ng-template>
+  

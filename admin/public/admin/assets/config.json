@@ -1,0 +1,25 @@
+{
+  "apiUrls": {
+    "baseUrl": "http://35.154.176.14:3000/apiv1",
+    "authUrl": "auth/login",
+    "getTimeUrl": "getTime",
+    "userListUrl": "user/getList",
+    "eventListUrl": "event/getList",
+    "eventCreateUrl": "event/create",
+    "eventGetByIDUrl": "event/getDataById",
+    "eventUpdateByIdUrl": "event/updateById",
+    "eventRemoveByIdUrl": "event/deleteDataById",
+    "resultUrl": "result/create",
+    "resultGetUrl": "result/getTodayResult",
+    "resultUpdateByIdUrl": "result/updateById",
+    "userPaymentListUrl": "payment/getList",
+    "userPaymentListByIdUrl": "payment/getDataById",
+    "userPaymentStatusUpdateUrl": "payment/approveWallet",
+    "withdrawalRequestUrl": "withdrawal/create",
+    "withdrawalRequestGetListUrl": "withdrawal/getList",
+    "withdrawalRequestApprovalUrl": "withdrawal/updateById",
+    "bidListUrl": "bid/getList"
+  },
+  "textfile": "assets/textfile.txt",
+  "date": "2020-01-29"
+}

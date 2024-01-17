@@ -1,0 +1,68 @@
+<div class="card">
+  <div class="card-header bg-dark text-white">
+    <h4 class="text-center">
+      Notification
+      <button
+         class="badge badge-pill border-0 float-right"
+        routerLink="/portal/notification/list"
+      >
+        <i class="fas fa-arrow-alt-circle-left"></i>
+      </button>
+    </h4>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="submit(notiform)" #notiform="ngForm">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              name="title"
+              id="title"
+              ngModel
+              aria-describedby="titlehelpId"
+              placeholder="Enter Title"
+              required
+            />
+            <small id="titlehelpId" class="form-text text-muted"
+              >Enter Title</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="desc">Description</label>
+            <textarea
+              type="text"
+              class="form-control"
+              name="desc"
+              id="desc"
+              ngModel
+              rows="10"
+              aria-describedby="deschelpId"
+              placeholder="Enter Description"
+              required
+            ></textarea>
+            <small id="deschelpId" class="form-text text-muted"
+              >Enter Description</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-auto">
+          <button
+            class="btn btn-primary"
+            [disabled]="!notiform.form.valid"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,115 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="text-center">
+      kalyan Starline
+      <button
+         class="badge badge-pill border-0 float-right"
+        (click)="back()"
+      >
+        <i class="fas fa-arrow-alt-circle-left"></i>
+      </button>
+    </h4>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="result(resultForm)" #resultForm="ngForm">
+      <div class="row">
+        <div class="col-6">
+          <a *ngIf="time">
+            <i class="fas fa-calendar"></i>
+            {{ time.DateString ? time.DateString : '-' }}
+          </a>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="singleDigit">Single Digit</label>
+            <input
+              type="text"
+              class="form-control"
+              name="singleDigit"
+              id="singleDigit"
+              ngModel
+              pattern="[0-9]*"
+              minlength="1"
+              maxlength="1"
+              aria-describedby="singleDigithelpId"
+              placeholder="Enter Single Digit"
+              required
+            />
+            <small id="singleDigithelpId" class="form-text text-muted"
+              >Enter Single Digit</small
+            >
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="patti">Patti</label>
+            <input
+              type="text"
+              class="form-control"
+              name="patti"
+              id="patti"
+              ngModel
+              pattern="[0-9]*"
+              minlength="3"
+              maxlength="3"
+              aria-describedby="pattihelpId"
+              placeholder="Enter Patti"
+              required
+            />
+            <small id="pattihelpId" class="form-text text-muted"
+              >Enter Patti</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button
+          class="btn btn-rounded btn-primary"
+          [disabled]="resultForm.form.invalid"
+        >
+          Publish
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<div
+  class="card text-left"
+  *ngIf="
+    EventService.resultOfkalyanStarline &&
+      EventService.resultOfkalyanStarline.length;
+    else Loading
+  "
+>
+  <div class="card-body table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Single Digit</th>
+          <th>Patti</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of EventService.resultOfkalyanStarline">
+          <td>
+            {{ item.result.singleDigit }}
+          </td>
+          <td>
+            {{ item.result.patti }}
+          </td>
+          <td>
+            {{ item.created_at | date: 'short' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<ng-template #Loading>
+  <div class="card text-center">
+    <div class="card-body"><i class="fas fa-spinner"></i> NO RECORD FOUND</div>
+  </div>
+</ng-template>

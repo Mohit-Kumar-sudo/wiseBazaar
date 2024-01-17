@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="text-center">
+      {{ ApiService.event.title | uppercase }}
+      <button
+        class="badge badge-pill badge-danger border-0 float-right"
+        (click)="back()"
+      >
+        &times;
+      </button>
+    </h4>
+  </div>
+  <div class="card-body" *ngIf="ApiService.event">
+    <table class="table">
+      <tr>
+        <th>Open Bid Last Time</th>
+        <td>{{ ApiService.event.result.notification[0].openTime }}</td>
+      </tr>
+      <tr>
+        <th>Close Bid Last Time</th>
+        <td>{{ ApiService.event.result.notification[0].closeTime }}</td>
+      </tr>
+      <tr>
+        <th>Open Result Time</th>
+        <td>{{ ApiService.event.result.notification[0].openResultTime }}</td>
+      </tr>
+      <tr>
+        <th>Close Result Time</th>
+        <td>{{ ApiService.event.result.notification[0].closeResultTime }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

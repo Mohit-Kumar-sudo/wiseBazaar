@@ -1,0 +1,47 @@
+<nav
+  class="navbar"
+  style="
+background: #00d2ff;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  "
+>
+  <a
+    class="sidebar-toggler"
+    id="sideMenuToggler"
+    style="height: 25px; color: white; padding: 15px"
+    (click)="toggleMenu()"
+  >
+    <i
+      class="fas fa-align-left"
+      id="sideMenuToggler"
+      style="height: 15px; width: 20px"
+    ></i>
+    <!-- &nbsp;
+  <span>BetWiseBazaar</span> -->
+  </a>
+  <div class="navbar-content" style="padding-left: 0px !important">
+    <ul class="navbar-nav" style="margin-left: 0px">
+      <li class="nav-item justify-content-left">
+        <span style="font-weight: bolder; font-size: large; color: white"
+          >BetWise Bazaar</span
+        >
+      </li>
+      &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li class="nav-item dropdown nav-profile justify-content-center">
+        <div class="dropdown-menu" aria-labelledby="profileDropdown">
+          <div class="dropdown-body">
+            <ul class="profile-nav p-0 pt-3" style="cursor: pointer">
+              <li class="nav-item">
+                <a (click)="logout()" class="nav-link">
+                  <i class="fas fa-sign-out-alt"></i>
+                  &nbsp;<span>Log Out</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

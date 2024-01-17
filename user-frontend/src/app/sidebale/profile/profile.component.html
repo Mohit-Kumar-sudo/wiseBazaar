@@ -1,0 +1,22 @@
+<div class="card mt-2">
+  <div class="card-header">
+    <h5>
+      <i class="fas fa-user-circle"></i>
+      {{ user.username | uppercase }}
+    </h5>
+  </div>
+  <div class="card-body">
+    <p>
+      Name :
+      {{ user.first_name |titlecase}} {{ user.last_name | titlecase }}
+    </p>
+    <p class="mt-2">
+      Mobile :
+      {{ user.mobile }}
+    </p>
+    <p class="mt-2">
+      Wallet :
+      {{ user.wallet }}
+    </p>
+  </div>
+</div>

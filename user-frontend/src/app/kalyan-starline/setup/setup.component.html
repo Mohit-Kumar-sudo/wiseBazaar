@@ -1,0 +1,152 @@
+<div class="container m-0 mt-1 p-0">
+  <div
+    class="card-header m-0 p-0"
+    style="
+      font-size: xx-small !important ;
+      color: blue;
+      font-weight: 200 !important;
+    "
+  >
+    <h6>
+      Rates
+      <h6 class="float-right">Starline Chart</h6>
+    </h6>
+  </div>
+  <div
+    class="card-body p-1"
+    style="
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05),
+        0 1px 2px 0 rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    "
+  >
+    <table>
+      <tr>
+        <th><small> Single Digit: 10 KA 100 </small></th>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+        <td>
+          <small> Single Panna: 10 KA 1600 </small>
+        </td>
+      </tr>
+      <hr
+        class="m-0 p-0 mt-1 ml-3"
+        style="width: 220%; align-self: center !important"
+      />
+      <tr>
+        <th><small> Double Panna: 10 KA 3200 </small></th>
+        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+        <td>
+          <small> Tripple Panna: 10 KA 10000 </small>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="card-header p-0 mt-2" style="padding: 10px">
+    <h6>
+      Starline Games
+      <h6 class="float-right" style="font-weight: 300 !important">
+        View History
+      </h6>
+    </h6>
+  </div>
+</div>
+<div
+  class="container"
+  style="padding: 0px !important; margin: 0px !important"
+  *ngIf="apiService.kalyanResults && apiService.kalyanResults.length"
+>
+  <!-- <div class="card-body" > -->
+  <div class="row p-0 mt-1 mb-1">
+    <div class="col-6 m-0 p-0" *ngFor="let item of apiService.kalyanResults">
+      <div
+        class="card p-0 m-1 border-10"
+        style="
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05),
+            0 1px 2px 0 rgba(0, 0, 0, 0.1);
+        "
+      >
+        <!-- <div class="card-head m-0 p-0"> -->
+        <marquee class="m-0 mr-1 ml-1 p-0" [scrollAmount]="3">
+          Close-BIDS : {{ item.notification[0].closeTime }}</marquee
+        >
+        <!-- </div> -->
+        <div class="card-body p-0 m-0">
+          <div class="row m-0 p-0">
+            <div class="col-6 pr-0" style="padding-right: 0px !important">
+              <div class="text-center">
+                <i class="far fa-clock fa-4x"></i>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="text-left">
+                <p class="mt-1 p-0" style="color: blue">{{ item.eventTime }}</p>
+
+                <span class="m-0 p-0" *ngIf="item.res.length; else neetesh">
+                  <h5
+                    class="m-0 p-0"
+                    style="
+                      color: rgb(10, 10, 107);
+                      font-size: small;
+                      font-weight: 800;
+                    "
+                    *ngFor="let res of item.res"
+                  >
+                    {{ res.result.patti ? res.result.patti : '***' }}-{{
+                      res.result.singleDigit ? res.result.singleDigit : '*'
+                    }}
+                  </h5>
+                </span>
+                <ng-template #neetesh>
+                  <h5 style="color: rgb(10, 10, 107)">***-*</h5>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+          <!-- <h5 style="color: blue">590-49-667</h5> -->
+          <marquee class="m-0 mr-1 ml-1 p-0" [scrollAmount]="3">{{
+            item.notification[0].alert
+          }}</marquee>
+          <div class="row m-0 p-0 mb-1 text-center">
+            <div
+              class="col mr-2 ml-2 p-0"
+              *ngIf="item.bid_enable && item.status == 'Open' else dheerandra"
+            >
+              <button
+                class="btn btn-primary btn-sm btn-block"
+                style="
+                  background-color: rgb(10, 10, 107);
+                  border-radius: 10px;
+                  padding: 5px;
+                "
+                [routerLink]="[
+                  '/portal/kalyan-starline/starline-game-type/' +
+                    item.eventTime +
+                    '/' +
+                    item._id
+                ]"
+                routerLinkActive="router-link-active"
+              >
+                <i class="fas fa-gamepad"></i>
+                <span style="font-weight: lighter"> Play Game </span>
+              </button>
+            </div>
+            <ng-template #dheerandra>
+              <div class="col">
+                <button
+                  class="btn btn-secondary btn-sm btn-block"
+                  style="
+                    border-radius: 5px;
+                    padding: 5px;
+                  "
+                >
+                  <i class="fas fa-gamepad"></i> Closed
+                </button>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+</div>

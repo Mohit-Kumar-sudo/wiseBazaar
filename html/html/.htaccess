@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /apiv1
+# If an existing asset or directory is requestedii go to it as it is
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+    RewriteRule ^ - [L]
+RewriteRule  (.*)  http://localhost:3000/$1  [P,L] 

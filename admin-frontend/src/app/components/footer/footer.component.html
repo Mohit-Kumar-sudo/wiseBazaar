@@ -1,0 +1,61 @@
+<footer
+  class="footer d-flex flex-column flex-md-row align-items-center justify-content-between"
+  style="
+    background: #00d2ff; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #3a7bd5,
+      #00d2ff
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #3a7bd5,
+      #00d2ff
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    padding: 0px !important;
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px;
+    min-height: 40px !important;
+
+    position: fixed;
+  "
+>
+  <!-- <div class="tb" style="border: 1px solid black;
+  border-radius: 10px;"> -->
+  <table class="table" style="border: none !important">
+    <tbody class="text-center">
+      <tr class="thead">
+        <th
+          class="border-0"
+          [routerLink]="['/portal/dashboard']"
+          routerLinkActive="router-link-active"
+        >
+        <i class="lni lni-home"></i>
+        </th>
+        <th
+          class="border-0"
+          [routerLink]="['/portal/sidebale/account-statement']"
+          routerLinkActive="router-link-active"
+        >
+          <i class="lni lni-clipboard"></i>
+        </th>
+        <th
+          class="border-0"
+          [routerLink]="['/portal/sidebale/notification']"
+          routerLinkActive="router-link-active"
+        >
+          <i class="lni lni-alarm"></i>
+        </th>
+        <th
+          class="border-0"
+          [routerLink]="['/portal/sidebale/profile']"
+          routerLinkActive="router-link-active"
+        >
+        <i class="lni lni-user"></i>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <!-- </div> -->
+</footer>

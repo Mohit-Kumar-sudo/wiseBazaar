@@ -1,0 +1,96 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="text-center">
+      <i class="fas fa-rupee-sign"></i>
+      ADD-POINTS
+      <button
+        class="badge badge-pill badge-primary border-0 float-right"
+        (click)="back()"
+      >
+         <i class="lni lni-arrow-left"></i>
+      </button>
+    </h4>
+  </div>
+  <div class="card-body" *ngIf="!transactionsBody">
+    <form (ngSubmit)="whatsappLink(form)" #form="ngForm">
+      <div class="row">
+        <div class="col-12">
+          <h6>Please follow this process -</h6>
+          <p>1. Enter minimum amount 100 or more for Payment.</p>
+          <p>2. After Payment ,Visit history of Payment.</p>
+        </div>
+        <div class="col-6">
+          <hr />
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input
+              type="amount"
+              class="form-control"
+              name="amount"
+              id="amount"
+              [(ngModel)]="amount"
+              minlength="3"
+              required
+              aria-describedby="helpId"
+              placeholder="Enter Amount for Wallet"
+            />
+            <small id="helpId" class="form-text text-muted"
+              >Enter Minimum Amount 100rs for Wallet</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-auto" *ngIf="amount >= 100">
+          <a
+            href="https://wa.me/7999547955?text=I%20want%20add%20{{
+              amount
+            }}%20rs%20in%20my%20wallet%20for%20play"
+            data-action="share/whatsapp/share"
+            target="_blank"
+            (click)="whatsappLink(form)"
+            class="btn btn-success"
+          >
+            <i class="fab fa-whatsapp-square"></i>
+            Add Points
+          </a>
+        </div>
+        <div class="col-auto">
+          <a
+            class="btn btn-secondary"
+            [routerLink]="['/portal/sidebale/new-payment-history']"
+            routerLinkActive="router-link-active"
+          >
+            History
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- <div class="card-body" *ngIf="!transactionsBody">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="tnxId">Enter transaction Id</label>
+          <input
+            type="tnxId"
+            class="form-control"
+            name="tnxId"
+            id="tnxId"
+            [(ngModel)]="tnxId"
+            aria-describedby="helpId"
+            placeholder="Enter Transaction id for quick response"
+          />
+          <small id="helpId" class="form-text text-muted"
+            >Enter Transaction id for quick response</small
+          >
+        </div>
+      </div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-primary" (click)="UpdateTnxId(tnxId)">Submit</button>
+      </div>
+    </div>
+  </div> -->
+</div>

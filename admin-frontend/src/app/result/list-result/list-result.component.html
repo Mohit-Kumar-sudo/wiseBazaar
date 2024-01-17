@@ -1,0 +1,76 @@
+<div class="card">
+  <div class="card-header" style="background: #00d2ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3a7bd5,
+    #00d2ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3a7bd5,
+    #00d2ff
+  );">
+    <h4 class="text-center text-white"><i class="fas fa-trophy"></i> Results</h4>
+  </div>
+  <div class="card-body">
+    <div
+      class="row m-0 p-0 mt-3"
+      style="margin-top: 0px"
+      *ngIf="EventService.eventslist.length; else Loading"
+    >
+      <div class="col-6 mb-1 mt-0" *ngFor="let item of EventService.eventslist">
+        <div
+          class="card text-center p-1 mt-2"
+          style="border-radius: 10px; border: 1px solid blue"
+        >
+          <div class="card-body p-0">
+            <div class="card-header" style="padding: 0px">
+              {{ item.title | uppercase }}
+            </div>
+            <br />
+            <h5 style="color: blue" *ngIf="item.res">
+              {{ getResult(item.res) }}
+            </h5>
+
+            <div class="row">
+              <div class="col-6">
+                <a
+                  [routerLink]="[
+                    '/portal/result/create/' + item._id + '/' + item.title
+                  ]"
+                  routerLinkActive="router-link-active"
+                  class="btn btn-success border-0"
+                  ><i class="fas fa-trophy"></i>
+                </a>
+              </div>
+              <div class="col-6">
+                <a
+                  [routerLink]="[
+                    '/portal/result/bid/' + item._id + '/' + item.title
+                  ]"
+                  routerLinkActive="router-link-active"
+                  class="btn btn-info border-0"
+                  ><i class="fas fa-list"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #Loading>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <h6>
+            <i class="fas fa-spinner"></i>
+            Data not Found
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,95 @@
+<div class="card">
+  <div class="card-header">
+    <h4>
+      WITHDRAWAL
+      <button
+        class="badge badge-pill badge-primary border-0 float-right"
+        (click)="back()"
+      >
+         <i class="lni lni-arrow-left"></i>
+      </button>
+    </h4>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h4 class="text-center text-danger">
+          Withdrawal Request Takes 24 Hours To Approve
+        </h4>
+        <hr />
+        <p class="text-center">
+          Fund will be credited to your <br />account in 24 hours. <br />Please
+          do not hurry your money is always <br />safe with our app
+          <br />
+          "Note <i class="fas fa-arrow-alt-circle-right"></i> Sunday Withdrawal
+          is Off"
+        </p>
+        <hr />
+        <p class="text-center">
+          For Withdrawal Related Query's Call or Whats App
+          <a class="badge badge-pill badge-primary border-0"
+            ><i class="fas fa-phone-volume"></i
+          ></a>
+          +91 7999547955
+        </p>
+        <hr />
+        <h5 class="text-center">
+          <i class="fas fa-wallet"></i> {{ userWallet }}
+        </h5>
+      </div>
+    </div>
+    <hr />
+    <div class="row text-center">
+      <div class="col">
+        <div class="form-group">
+          <input
+            type="number"
+            class="form-control"
+            name="amount"
+            [(ngModel)]="amount"
+            id="amount"
+            aria-describedby="amounthelpId"
+            placeholder="Enter Amount"
+            required
+          />
+          <small id="helpId" class="form-text text-muted"
+            ><i class="fas fa-rupee-sign"></i> Enter Minimum Withdrawal Amount
+            500</small
+          >
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col">
+        <div class="form-group">
+          <input
+            type="tel"
+            class="form-control"
+            name="mobileNumber"
+            [(ngModel)]="mobileNumber"
+            id="mobileNumber"
+            aria-describedby="mobileNumberhelpId"
+            placeholder="Enter Mobile Number"
+            pattern="[6789][0-9]{9}"
+            required
+          />
+          <small id="helpId" class="form-text text-muted"
+            ><i class="fas fa-phone"></i> Enter PhonePe/GooglePe Number</small
+          >
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-auto text-center">
+        <button
+          class="btn btn-primary btn-rounded"
+          [disabled]="!amount"
+          (click)="withdrawalAmount(amount)"
+        >
+          WITHDRAWAL
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

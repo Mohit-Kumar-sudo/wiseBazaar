@@ -1,0 +1,115 @@
+<div class="card">
+  <div class="card-body">
+    <form (ngSubmit)="submit(collectionform)" #collectionform="ngForm">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="collection_name">Collection Name</label>
+            <select
+              class="form-control"
+              name="collection_name"
+              id="collection_name"
+              ngModel
+            >
+              <option>student</option>
+              <option>member</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="field_name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="field_name"
+              ngModel
+              id="field_name"
+              aria-describedby="field_namehelpId"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="field_type">Type</label>
+            <input
+              type="text"
+              class="form-control"
+              name="field_type"
+              ngModel
+              id="field_type"
+              aria-describedby="field_typehelpId"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="field_value">Value</label>
+            <input
+              type="text"
+              class="form-control"
+              name="field_value"
+              ngModel
+              id="field_value"
+              aria-describedby="field_typehelpId"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="mandatory">Mandatory</label>
+            <select
+              class="form-control"
+              name="mandatory"
+              id="mandatory"
+              ngModel
+            >
+              <option>true</option>
+              <option>false</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-auto">
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="collection_name">Collection Name</label>
+          <select
+            class="form-control"
+            name="collection_name"
+            id="collection_name"
+            [(ngModel)]="collection_name"
+          >
+            <option>student</option>
+            <option>member</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-auto">
+      <button type="button" (click)="generateExcel()" class="btn btn-primary">
+        generate Excel
+      </button>
+    </div>
+    <div class="row" *ngIf="collectionService.link">
+      <div class="col">
+        <a
+          class="btn btn-primary"
+          href="{{ env.url }}/uploads/{{ collectionService.link }}"
+          target="_blank"
+          >Click here to Download</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <a
+      [routerLink]="['/portal/dashboard']"
+      routerLinkActive="router-link-active"
+      class="sidebar-brand"
+      style="font-size: 19px"
+    >
+      <img
+        style="height: 20px; margin-right: 4px"
+        src="https://sites.google.com/site/sattamatkasattamatka/_/rsrc/1421207387120/home/gold-pot.png?height=212&width=222"
+        alt=""
+      />
+      <span class="mb-2 text-center"
+      style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; color:orangered; font-weight: bolder;
+    "
+      >Bet Wise Bazaar</span>
+      <!-- <img class="img-fluid" alt="rgpv"
+      src="https://controller.rgpvexam.in/assets/img/brand/logo.png"> -->
+    </a>
+    <div
+      class="d-none d-md-block sidebar-toggler not-active"
+      (click)="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div
+      class="d-block d-md-none sidebar-toggler not-active"
+      (click)="toggleSideMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div class="sidebar-body">
+    <ul class="nav">
+      <li *ngFor="let item of navItems" class="nav-item">
+        <a class="nav-item nav-category"
+          ><span *ngIf="item.class == 'title-item'">{{ item.name }}</span></a
+        >
+        <a
+          *ngIf="item.class == 'item'"
+          [routerLink]="item.url"
+          routerLinkActive="router-link-active"
+          class="nav-link"
+        >
+          <i class="link-icon fas {{ item.icon }}"></i>
+          <span class="link-title">{{ item.name }}</span>
+        </a>
+        <a class="nav-item nav-category"
+          ><span *ngIf="item.class == 'title-sub-item'">{{
+            item.name
+          }}</span></a
+        >
+        <a
+          *ngIf="item.class == 'subItem'"
+          class="nav-link"
+          data-toggle="collapse"
+          href="#{{ item.id }}"
+          role="button"
+          aria-expanded="false"
+          [attr.aria-controls]="item.name"
+        >
+          <i class="link-icon fas {{ item.icon }}"></i>
+          <span class="link-title">{{ item.name }}</span>
+          <i class="link-arrow fas fa-chevron-down"></i>
+        </a>
+        <div
+          class="collapse"
+          id="{{ item.id }}"
+          *ngIf="item.class == 'subItem'"
+        >
+          <ul class="nav sub-menu">
+            <li class="nav-item" *ngFor="let child of item.children">
+              <a
+                [routerLink]="child.url"
+                routerLinkActive="active"
+                class="nav-link"
+                >{{ child.name }}</a
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+      <!-- <li class="nav-item" *ngFor="let item of navItems">
+      <a *ngIf="item.class == 'subItem'" class="nav-link" data-toggle="collapse" href="#user" role="button" aria-expanded="false"
+        aria-controls="user">
+        <i class="link-icon fas {{item.icon}}"></i>
+        <span class="link-title">{{item.name}}</span>
+        <i class="link-arrow fas fa-chevron-down"></i>
+      </a>
+      <div class="collapse" id="{{item.id}}" *ngIf="item.class == 'subItem'">
+        <ul class="nav sub-menu">
+          <li class="nav-item" *ngFor="let child of item.children"> 
+            <a [routerLink]="child.url" routerLinkActive="active" class="nav-link">{{child.name}}</a>
+      <div class="collapse" id="user" *ngIf="item.class == 'subItem'">
+        <ul class="nav sub-menu">
+          <li class="nav-item" *ngFor="let child of item.children"> 
+            <a routerLink="/portal/user/create" routerLinkActive="active" class="nav-link">{{child.name}}</a>
+          </li>
+         
+        </ul>
+      </div>
+      </li>
+     
+    </li>  -->
+    </ul>
+  </div>
+</nav>

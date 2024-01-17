@@ -1,0 +1,131 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="text-center">
+      Upload Payment Receipt
+      <button
+        class="badge badge-pill badge-primary border-0 float-right"
+        (click)="back()"
+      >
+         <i class="lni lni-arrow-left"></i>
+      </button>
+    </h5>
+    <div class="col-12">
+      <hr />
+    </div>
+    <form
+      (ngSubmit)="paymentDetails(paymentDetailsform)"
+      #paymentDetailsform="ngForm"
+    >
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="paydate">Payment Date</label>
+            <input
+              type="date"
+              class="form-control"
+              name="paydate"
+              id="paydate"
+              ngModel
+              aria-describedby="paydatehelpId"
+              placeholder="Enter Payment Date"
+              required
+            />
+            <small id="paydatehelpId" class="form-text text-muted"
+              >Enter Payment Date</small
+            >
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="payTime">Payment Time</label>
+            <input
+              type="time"
+              class="form-control"
+              name="payTime"
+              ngModel
+              id="payTime"
+              aria-describedby="payTimehelpId"
+              placeholder="Enter Payment Time"
+              required
+            />
+            <small id="payTimehelpId" class="form-text text-muted"
+              >Enter Payment Time</small
+            >
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="payAmount">Payment Amount</label>
+            <input
+              type="number"
+              class="form-control"
+              name="payAmount"
+              [(ngModel)]="payAmount"
+              id="payAmount"
+              min="500"
+              aria-describedby="payAmounthelpId"
+              placeholder="Enter Payment Amount"
+              required
+            />
+            <small id="helpId" class="form-text text-muted"
+              >Plese Enter minimum 500 Rs.</small
+            >
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="transactionStatus">Payment Status</label>
+            <select
+              class="form-control"
+              name="transactionStatus"
+              id="transactionStatus"
+              ngModel
+              required
+            >
+              <option value="">--Select--</option>
+              <option value="Success">Success</option>
+              <option value="Pending">Pending</option>
+              <option value="Failed">Failed</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="transactionImage">Choose Image</label>
+            <input
+              type="file"
+              class="form-control"
+              id="transactionImage"
+              name="transactionImage"
+              ngModel
+              (change)="handleFileInput($event)"
+              #fileInput
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <a class="btn btn-primary btn-rounded" id="img-button"> ❌ </a>
+        </div>
+        <div class="col-6 mt-3">
+          <button
+            class="btn btn-danger btn-rounded"
+            [disabled]="paymentDetailsform.form.invalid"
+          >
+            Submit
+          </button>
+        </div>
+        <!-- <div class="col-6 mt-3">
+          <button
+            class="btn btn-success btn-rounded"
+            [disabled]="paymentDetailsform.form.invalid"
+          >
+            Submit
+          </button>
+        </div> -->
+      </div>
+    </form>
+  </div>
+</div>

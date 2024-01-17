@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-header">
+    <h5 class="text-center">
+      Withdrawal History
+      <button
+        class="badge badge-pill badge-primary border-0 float-right"
+        (click)="back()"
+      >
+         <i class="lni lni-arrow-left"></i>
+      </button>
+    </h5>
+  </div>
+  <div
+    class="card-body table-responsive"
+    *ngIf="ApiService.withdRequest && ApiService.withdRequest.length"
+  >
+    <table class="table table-striped table-inverse">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Request Date</th>
+          <th>status</th>
+          <th>Amount</th>
+          <th>UPI Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of ApiService.withdRequest; let i = index">
+          <td>{{ item.created_at | date: 'short' }}</td>
+          <td>
+            <button
+              class="btn btn-rounded btn-{{
+                item.status == 'Approved'
+                  ? 'success'
+                  : item.status == 'Failed'
+                  ? 'danger'
+                  : 'warning'
+              }}"
+            >
+              {{ item.status ? item.status : 'Pending' }}
+            </button>
+          </td>
+          <td>{{ item.withdrawalAmount }}</td>
+          <td>{{ item.upiNumber }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

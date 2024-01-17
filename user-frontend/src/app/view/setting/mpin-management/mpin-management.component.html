@@ -1,0 +1,188 @@
+<div class="card animate__fadeInDown">
+  <div class="card-header">Please provide secure PIN</div>
+  <div class="card-body">
+    <ng-container>
+      <div class="text-center">
+        <div class="card" style="margin-left: 10%; margin-right: 10%">
+           <div class="card-header text-light" style="background-image: radial-gradient( circle 763px at 18.3% 24.1%,  rgba(255,249,137,1) 7.4%, rgba(226,183,40,1) 58.3% );">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <b> {{ user.username }}</b>
+          </div>
+          <div class="card-body">
+            <form
+              (ngSubmit)="submit(Loginform)"
+              #Loginform="ngForm"
+              *ngIf="!showPin"
+            >
+              <div>
+                <div class="row">
+                  <div class="col-12 col-md-12">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="username"
+                      id="username"
+                      [(ngModel)]="user.username"
+                      aria-describedby="helpId"
+                      placeholder="Enter Username"
+                      readonly
+                      hidden
+                    />
+                  </div>
+                  <div class="col-12 col-md-12">
+                    <div class="form-group text-left">
+                      <label for="password">Password</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="password"
+                        id="password"
+                        ngModel
+                        aria-describedby="helpId"
+                        placeholder="Enter Password"
+                        autocomplete="new-password"
+                        required
+                      />
+                      <small id="passwordhelpId" class="form-text text-muted"
+                        >Enter Password</small
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <button type="submit" class="btn btn-block btn-primary">
+                      <i class="fa fa-check-circle" aria-hidden="true"></i>
+                      Authenticate
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div *ngIf="showPin && userDetails && !userDetails.spin">
+              <form
+                (ngSubmit)="generatePin(generatePinform)"
+                #generatePinform="ngForm"
+              >
+                <p><b>Generate Secure Pin</b></p>
+                <div class="row">
+                  <div class="col-12 col-md-12">
+                    <div class="form-group text-left">
+                      <label for="spin">Enter Security Pin</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="spin"
+                        id="spin"
+                        ngModel
+                        aria-describedby="spinhelpId"
+                        placeholder="Enter Security Pin"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-12">
+                    <div class="form-group text-left">
+                      <label for="respin">Re-enter Security Pin</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="respin"
+                        id="respin"
+                        ngModel
+                        aria-describedby="respinhelpId"
+                        placeholder="Re-enter Security Pin"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <button
+                      type="button"
+                      [disabled]="generatePinform.invalid"
+                      class="btn btn-primary"
+                      (click)="generatePin(generatePinform)"
+                    >
+                      Generate secure Pin
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div
+              *ngIf="
+                showPin && userDetails && userDetails.spin && !openForgetBody
+              "
+            >
+              <h5>M-Pin Created</h5>
+              <hr />
+              <div class="row">
+                <div class="col-12 col-md-4"><b>Forget Security Pin</b></div>
+                <div class="col-12 col-md-4">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="openForgetBody = !openForgetBody"
+                  >
+                    Click Here
+                  </button>
+                </div>
+              </div>
+              
+            </div>
+            <div class="row" *ngIf="openForgetBody">
+              <form (ngSubmit)="validate(Loginform)" #Loginform="ngForm">
+                <div>
+                  <div class="row">
+                    <div class="col-12 col-md-12">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="username"
+                        id="username"
+                        [(ngModel)]="user.username"
+                        aria-describedby="helpId"
+                        placeholder="Enter Username"
+                        readonly
+                        hidden
+                      />
+                    </div>
+                    <div class="col-12 col-md-12">
+                      <div class="form-group text-left">
+                        <label for="password">Password</label>
+                        <input
+                          type="password"
+                          class="form-control"
+                          name="password"
+                          id="password"
+                          ngModel
+                          aria-describedby="helpId"
+                          placeholder="Enter Password"
+                          autocomplete="new-password"
+                          required
+                        />
+                        <small
+                          id="passwordhelpId"
+                          class="form-text text-muted"
+                          >Enter Password</small
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <button type="submit" class="btn btn-block btn-primary">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                        Authenticate
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,123 @@
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <a
+      [routerLink]="['/portal/dashboard']"
+      routerLinkActive="router-link-active"
+      class="sidebar-brand"
+      style="font-size: 19px"
+    >
+      <img
+        style="height: 20px; margin-right: 4px"
+        src="https://www.rgpv.ac.in/Images/RGPVLOGO.JPG"
+        alt=""
+      />
+      Exam <span>Portal</span>
+      <!-- <img class="img-fluid" alt="rgpv"
+      src="https://controller.rgpvexam.in/assets/img/brand/logo.png"> -->
+    </a>
+    <div
+      class="d-none d-md-block sidebar-toggler not-active"
+      (click)="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div
+      class="d-block d-md-none sidebar-toggler not-active"
+      (click)="toggleSideMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div class="sidebar-body">
+    <ul class="nav">
+      <li class="nav-item nav-category">Main</li>
+      <li class="nav-item">
+        <a
+          [routerLink]="['/portal/dashboard']"
+          routerLinkActive="router-link-active"
+          class="nav-link"
+        >
+          <i class="link-icon fas fa-tachometer-alt"></i>
+          <span class="link-title">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item nav-category">Exam</li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          href="#qb"
+          role="button"
+          aria-expanded="false"
+          aria-controls="qb"
+        >
+          <i class="link-icon fas fa-question-circle"></i>
+          <span class="link-title">Question Bank</span>
+          <i class="link-arrow fas fa-chevron-down"></i>
+        </a>
+        <div class="collapse" id="qb">
+          <ul class="nav sub-menu">
+            <!-- <li class="nav-item">
+              <a
+                routerLink="/portal/quesb/create"
+                routerLinkActive="active"
+                class="nav-link"
+                >New</a
+              >
+            </li> -->
+            <li class="nav-item">
+              <a
+                routerLink="/portal/quesb/list"
+                routerLinkActive="active"
+                class="nav-link"
+                >List</a
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+      <!--  <li class="nav-item nav-category">Role Manage</li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#role" role="button" aria-expanded="false"
+          aria-controls="role">
+          <i class="link-icon fas fa-universal-access"></i>
+          <span class="link-title">Role</span>
+          <i class="link-arrow fas fa-chevron-down"></i>
+        </a>
+        <div class="collapse" id="role">
+          <ul class="nav sub-menu">
+            <li class="nav-item">
+              <a routerLink="/portal/role/create" routerLinkActive="active" class="nav-link">New</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/portal/role/list" routerLinkActive="active" class="nav-link">List</a>
+            </li>
+          </ul>
+        </div>
+      </li> -->
+      <!-- <li class="nav-item nav-category">Students</li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#emails" role="button" aria-expanded="false"
+          aria-controls="emails">
+          <i class="link-icon fas fa-envelope-open-text"></i>
+          <span class="link-title">Registration</span>
+          <i class="link-arrow fas fa-chevron-down"></i>
+        </a>
+        <div class="collapse" id="emails">
+          <ul class="nav sub-menu">
+            <li class="nav-item">
+              <a routerLink="/portal/member/create" routerLinkActive="active" class="nav-link">New</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/portal/member/list" routerLinkActive="active" class="nav-link">List</a>
+            </li>
+          </ul>
+        </div>
+      </li> -->
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,38 @@
+<div class="card" *ngIf="userDetails">
+  <div class="card-header">
+    <h4 class="text-center">
+      <i class="fa fa-cog" aria-hidden="true"></i>
+    </h4>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <label for="">MPIN Enable</label>
+      </div>
+      <div class="col-auto">
+        <label class="switch">
+          <input
+            type="checkbox"
+            name="enable"
+            [(ngModel)]="showConfirm"
+            (change)="update()"
+          />
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card" *ngIf="userDetails && userDetails.spin_enable">
+  <div class="card-header">
+    <div class="col-auto">
+      <button
+        class="btn btn-success"
+        [routerLink]="['/portal/setting/mpin']"
+        routerLinkActive="router-link-active"
+      >
+        Pin-Manage
+      </button>
+    </div>
+  </div>
+</div>

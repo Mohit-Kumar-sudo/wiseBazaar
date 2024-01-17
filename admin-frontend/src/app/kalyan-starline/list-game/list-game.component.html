@@ -1,0 +1,126 @@
+<div class="card">
+  <div class="card-header" style="background: #00d2ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3a7bd5,
+    #00d2ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3a7bd5,
+    #00d2ff
+  );">
+    <h4 class="text-center text-white">
+      Starline
+      <button
+         class="badge badge-pill border-0 float-right"
+        routerLink="/portal/kalyan-starline/create"
+      >
+        <i class="fas fa-user-plus" style="color: #3a7bd5;"></i>
+      </button>
+      <button
+        class="badge badge-pill badge-warning border-0 float-right mx-2"
+        routerLink="/portal/kalyan-starline/result"
+      >
+        <i class="fas fa-trophy"></i>
+      </button>
+    </h4>
+  </div>
+  <div
+    class="card-body"
+    *ngIf="
+      eventService.eventsKalyanlist && eventService.eventsKalyanlist.length
+    "
+  >
+    <div class="row p-0 mt-3">
+      <div
+        class="col-6 mb-3 mt-0"
+        *ngFor="let item of eventService.eventsKalyanlist"
+      >
+        <div class="card text-center p-0">
+          <div class="card-header">
+            <marquee [scrollAmount]="3">
+              Close-BIDS : {{ item.notification[0].closeTime }}</marquee
+            >
+            <h4 class="mt-1">{{ item.eventTime | uppercase }}</h4>
+          </div>
+          <div class="card-body p-0">
+            <!-- <h5 style="color: blue">590-49-667</h5> -->
+            <marquee class="mt-1" [scrollAmount]="3">{{
+              item.notification[0].alert
+            }}</marquee>
+            <div class="row">
+              <div class="col" *ngIf="item.status == 'Open'">
+                <button
+                class="badge badge-pill badge-light py-1 px-3"
+                style="
+                  border: 1px solid white;
+                  background: #fdfc47; /* fallback for old browsers */
+                  background: -webkit-linear-gradient(
+                    to right,
+                    #24fe41,
+                    #fdfc47
+                  ); /* Chrome 10-25, Safari 5.1-6 */
+                  background: linear-gradient(
+                    to right,
+                    #24fe41,
+                    #fdfc47
+                  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                  border-radius: 8px;
+                  padding: 5px;
+                "
+              >
+                <i class="lni lni-play-store-fill"></i>
+                &nbsp;
+                <span style="font-weight: bold"> Play Game </span>
+              </button>
+              </div>
+              <div class="col" *ngIf="item.status == 'Closed'">
+                <button
+                class="badge badge-pill badge-light py-1 px-3"
+                style="
+                  border: 1px solid white;
+                  background: #fc4a1a; /* fallback for old browsers */
+                  background: -webkit-linear-gradient(
+                    to right,
+                    #f7b733,
+                    #fc4a1a
+                  ); /* Chrome 10-25, Safari 5.1-6 */
+                  background: linear-gradient(
+                    to right,
+                    #f7b733,
+                    #fc4a1a
+                  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+                  border-radius: 8px;
+                "
+              >
+                <i class="fas fa-store-alt-slash" style="color: white"></i>
+                &nbsp;
+                <span style="font-weight: bold; color: white">
+                  Closed
+                </span>
+              </button>
+              </div>
+              <div class="col-auto">
+                <a
+                class="badge badge-pill badge-light py-1 px-3"
+                style="
+                  border: 1px solid white;
+                  color: white;
+                  background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+                  border-radius: 8px;
+                "
+                 [routerLink]="['/portal/kalyan-starline/create/' + item._id]"
+                 routerLinkActive="router-link-active"
+                >
+                <i class="lni lni-pencil-alt" style="color: white;"></i> &nbsp; Edit
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

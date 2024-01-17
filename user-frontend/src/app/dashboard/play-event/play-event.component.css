@@ -1,0 +1,8 @@
+.fa, .fas {
+    font-weight: 900;
+    color: #9c3915;
+}
+.card-body{
+    min-height: 120px;
+}
+

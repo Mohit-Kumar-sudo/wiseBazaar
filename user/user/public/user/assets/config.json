@@ -1,0 +1,21 @@
+{
+    "apiUrls": {
+        "baseUrl": "http://35.154.176.14:3100/apiv2",
+        "authUrl": "auth/login",
+        "userGetByIdUrl": "auth/getDataById",
+        "withdrawalRequestUrl": "bid/withdrawalrequest",
+        "withdrawalRequestGetListUrl": "bid/withdrawalrequestList",
+        "eventListUrl": "bid/getEventList",
+        "getEventsListByIdUrl": "bid/getEventsListById",
+        "bidCreateUrl": "bid/create",
+        "bidGetByEventIdUrl": "bid/getList",
+        "getresultListUrl": "bid/getresultList",
+        "fileUploadUrl": "file/upload",
+        "PaymentDataUrl": "bid/paymentCreate",
+        "PaymentDataGetListUrl": "bid/getPaymentList",
+        "paymentUpdateByIdUrl": "bid/paymentUpdateById",
+        "paymentDeleteDataByIdUrl": "bid/paymentDeleteDataById"
+    },
+    "textfile": "assets/textfile.txt",
+    "date": "2020-01-29"
+}

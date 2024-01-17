@@ -1,0 +1,204 @@
+<div class="card" *ngIf="!showUpdateBody">
+  <div class="card-header">
+    <h4 class="text-center">
+      Result of "{{ title | uppercase }}"
+      <button
+         class="badge badge-pill border-0 float-right"
+        (click)="back()"
+      >
+        <i class="fas fa-arrow-alt-circle-left"></i>
+      </button>
+    </h4>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="result(resultForm)" #resultForm="ngForm">
+      <div class="row">
+        <div class="col-6">
+          <a>
+            <i class="fas fa-calendar"></i>
+            {{ today | date }}
+          </a>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="openPanna">Open Panna</label>
+            <input
+              type="text"
+              class="form-control"
+              name="patti"
+              id="patti"
+              ngModel
+              pattern="[0-9]*"
+              minlength="3"
+              maxlength="3"
+              aria-describedby="openPannahelpId"
+              placeholder="Enter Open Panna"
+              required
+            />
+            <small id="openPannahelpId" class="form-text text-muted"
+              >Enter Open Panna</small
+            >
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="openDigit">Open Digit</label>
+            <input
+              type="text"
+              class="form-control"
+              name="digit"
+              id="digit"
+              ngModel
+              pattern="[0-9]*"
+              maxlength="1"
+              aria-describedby="openDigithelpId"
+              placeholder="Enter Open Digit"
+              required
+            />
+            <small id="openDigithelpId" class="form-text text-muted"
+              >Enter Open Digit</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button
+          class="btn btn-rounded btn-primary"
+          [disabled]="resultForm.form.invalid"
+        >
+          Publish
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<div
+  class="card text-left"
+  *ngIf="EventService.resultOfEvent.length && !showUpdateBody"
+>
+  <div class="card-body table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><i class="fas fa-cog fa-2x"></i></th>
+          <th><i class="fas fa-arrow-alt-circle-down fa-2x"></i></th>
+          <th>
+            Open Digit -
+            <br />
+            Open Panna
+          </th>
+          <th>
+            Close Digit - <br />
+            Close Panna
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of EventService.resultOfEvent">
+          <td>
+            <button
+              class="badge badge-pill badge-info"
+              (click)="showUpdateBody = !showUpdateBody"
+              *ngIf="item.data_set != 'close'; else neetsh"
+            >
+              Publish
+            </button>
+          </td>
+          <td (click)="deleteResult(item._id)">
+            <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+          </td>
+          <td>
+            <span *ngIf="item.data_set == 'open'; else neetsh">
+              {{ item.digit ? item.digit : '*' }}/{{
+                item.patti ? item.patti : '***'
+              }}
+            </span>
+            <span>
+              <ng-template #neetsh>*-***</ng-template>
+            </span>
+          </td>
+          <td>
+            <span *ngIf="item.data_set == 'close'; else neetsh">
+              {{ item.patti ? item.patti : '*' }}/{{
+                item.digit ? item.digit : '***'
+              }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card" *ngIf="showUpdateBody">
+  <div class="card-header">
+    <h4 class="text-center">
+      Publish Result
+      <button
+         class="badge badge-pill border-0 float-right"
+        (click)="showUpdateBody = !showUpdateBody"
+      >
+        <i class="fas fa-arrow-alt-circle-left"></i>
+      </button>
+    </h4>
+  </div>
+  <div class="card-body">
+    <form
+      (ngSubmit)="updateResult(updateResultform)"
+      #updateResultform="ngForm"
+    >
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="patti">Close Panna</label>
+            <input
+              type="text"
+              class="form-control"
+              name="patti"
+              id="patti"
+              ngModel
+              pattern="[0-9]*"
+              minlength="3"
+              maxlength="3"
+              aria-describedby="closePannahelpId"
+              placeholder="Enter Close Panna"
+              required
+            />
+            <small id="closePannahelpId" class="form-text text-muted"
+              >Enter Close Panna</small
+            >
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="digit">Close Digit</label>
+            <input
+              type="text"
+              class="form-control"
+              name="digit"
+              ngModel
+              id="digit"
+              pattern="[0-9]*"
+              maxlength="1"
+              aria-describedby="closeDigithelpId"
+              placeholder="Enter Close Digit"
+              required
+            />
+            <small id="closeDigithelpId" class="form-text text-muted"
+              >Enter Close Digit</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button
+          class="btn btn-rounded btn-primary"
+          [disabled]="updateResultform.form.invalid"
+        >
+          Publish
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

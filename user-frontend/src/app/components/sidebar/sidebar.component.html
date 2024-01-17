@@ -1,0 +1,155 @@
+<main>
+  <nav>
+  </nav>
+</main>
+
+<div class="sidebar">
+  <div class="row justify-content-center " style="padding-left: 30px; margin-top: 20px; margin-bottom: 20px">
+    <div class="col-auto m-0 p-0 pr-2 ">
+      <i class="fas fa-user-circle " style="font-size: 30px; justify-content: right; color: rgb(24, 114, 241);"></i>
+    </div>
+    <div class="col m-0 p-0" style="text-align: left !important;">
+      <span style="font-weight: 900 !important;">{{ user.first_name | titlecase }}</span><br>
+      {{ user.mobile }}</div>
+    <!-- <img src="https://www.emmegi.co.uk/wp-content/uploads/2019/01/User-Icon.jpg" alt="" /> -->
+  </div>
+  <div class="info text-center">
+  </div>
+  <ul class="sidebar-list">
+    <li *ngFor="let item of navItems" class="nav-item">
+      <a class="sidebar-anchor"><span *ngIf="item.class == 'title-item'">{{ item.name }}</span></a>
+      <a *ngIf="item.class == 'item'" [routerLink]="item.url" routerLinkActive="router-link-active" class="nav-link">
+        <i class="link-icon fas {{ item.icon }} " style="color: rgb(24, 114, 241)!important;"></i> &nbsp;&nbsp;
+        <span class="link-title" style="color: black !important;">{{ item.name }}</span>
+      </a>
+      <a class="sidebar-anchor"><span *ngIf="item.class == 'title-sub-item'">{{ item.name }}</span>
+      </a>
+      <a *ngIf="item.class == 'subItem'" class="nav-link" data-toggle="collapse" href="#{{ item.id }}" role="button"
+        aria-expanded="false" [attr.aria-controls]="item.name">
+        <i class="link-icon fas {{ item.icon }}"></i>
+        <span class="link-title" style="color: black !important;">{{ item.name }}</span>
+        <i class="link-arrow fas fa-chevron-down"></i>
+      </a>
+      <div class="collapse" id="{{ item.id }}" *ngIf="item.class == 'subItem'">
+        <ul class="nav sub-menu">
+          <li class="nav-item" *ngFor="let child of item.children">
+            <a [routerLink]="child.url" routerLinkActive="active" class="nav-link">{{ child.name }}</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <a (click)="logout()" class="nav-link" style="color:rgb(24, 114, 241)">
+        <i class="fas fa-sign-out-alt"></i>
+        &nbsp;<span style="color: black !important;">Log Out</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<script>
+  $(document).ready(function () {
+    function toggleSidebar() {
+      $('.button').toggleClass('active');
+      $('main').toggleClass('move-to-left');
+      $('.sidebar-item').toggleClass('active');
+    }
+
+    $('.button').on('click tap', function () {
+      toggleSidebar();
+    });
+
+    $(document).keyup(function (e) {
+      if (e.keyCode === 27) {
+        toggleSidebar();
+      }
+    });
+  });
+</script>
+
+<!-- <nav class="sidebar">
+  <div class="sidebar-header">
+    <a
+      [routerLink]="['/portal/dashboard']"
+      routerLinkActive="router-link-active"
+      class="sidebar-brand"
+      style="font-size: 19px"
+    >
+      <img
+        style="height: 20px; margin-right: 4px"
+        src="https://sites.google.com/site/sattamatkasattamatka/_/rsrc/1421207387120/home/gold-pot.png?height=212&width=222"
+        alt=""
+      />
+      <span style="font-family: cursive; color: rgb(214, 136, 41)">BetWise Bazaar</span>
+      
+    </a>
+    <div
+      class="d-none d-md-block sidebar-toggler not-active"
+      (click)="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div
+      class="d-block d-md-none sidebar-toggler not-active"
+      (click)="toggleSideMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div class="sidebar-body">
+    <ul class="nav">
+      <li *ngFor="let item of navItems" class="nav-item">
+        <a class="nav-item nav-category"
+          ><span *ngIf="item.class == 'title-item'">{{ item.name }}</span></a
+        >
+        <a
+          *ngIf="item.class == 'item'"
+          [routerLink]="item.url"
+          routerLinkActive="router-link-active"
+          class="nav-link"
+        >
+          <i class="link-icon fas {{ item.icon }}"></i>
+          <span class="link-title">{{ item.name }}</span>
+        </a>
+        <a class="nav-item nav-category"
+          ><span *ngIf="item.class == 'title-sub-item'">{{
+            item.name
+          }}</span></a
+        >
+        <a
+          *ngIf="item.class == 'subItem'"
+          class="nav-link"
+          data-toggle="collapse"
+          href="#{{ item.id }}"
+          role="button"
+          aria-expanded="false"
+          [attr.aria-controls]="item.name"
+        >
+          <i class="link-icon fas {{ item.icon }}"></i>
+          <span class="link-title">{{ item.name }}</span>
+          <i class="link-arrow fas fa-chevron-down"></i>
+        </a>
+        <div
+          class="collapse"
+          id="{{ item.id }}"
+          *ngIf="item.class == 'subItem'"
+        >
+          <ul class="nav sub-menu">
+            <li class="nav-item" *ngFor="let child of item.children">
+              <a
+                [routerLink]="child.url"
+                routerLinkActive="active"
+                class="nav-link"
+                >{{ child.name }}</a
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+      
+    </ul>
+  </div>
+</nav> -->

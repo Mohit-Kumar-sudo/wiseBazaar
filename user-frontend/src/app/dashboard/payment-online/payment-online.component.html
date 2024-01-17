@@ -1,0 +1,23 @@
+<div class="card h-100vh">
+    <div class="card-body p-5">
+        <div class="d-flex h-100 justify-content-center align-items-center">
+            <form #paymentForm="ngForm" (submit)="pay(paymentForm)" class="text-center">
+                <h3>Enter Amount</h3>
+                <br>
+                <div class="form-group">
+                    <input type="number" ngModel
+                        class="form-control" name="amount" id="amount" aria-describedby="helpId" placeholder="0">
+                    <small id="helpId" class="form-text text-muted">(minimum: {{min}})</small>
+                </div>
+                <div>
+                    <button class="btn btn-success px-4 btn-rounded" [disabled]="!(paymentForm.form.value.amount && paymentForm.form.value.amount >= min)">
+                        Pay
+                        <i
+                        *ngIf="paymentForm.form.value.amount && paymentForm.form.value.amount >= min"
+                        class="fa fa-check-circle" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

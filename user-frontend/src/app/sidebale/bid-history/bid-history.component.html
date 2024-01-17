@@ -1,0 +1,155 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="text-center">
+      <i class="fas fa-trophy"></i> Event
+      <button
+         class="badge badge-pill border-0 float-right"
+        (click)="back()"
+      >
+         <i class="lni lni-arrow-left"></i>
+      </button>
+    </h4>
+  </div>
+  <!-- <div class="card-body">
+    <div class="row" *ngIf="api.eventslist.length; else Loading">
+      <div class="col-6" *ngFor="let item of api.eventslist">
+        <div class="card mb-2">
+          <div class="card-body">
+            <h5 class="text-center">{{ item.title | uppercase }}</h5>
+            <hr />
+            <div class="row text-center">
+              <div class="col-12">
+                <a
+                  [routerLink]="[
+                    '/portal/sidebale/bid-game-history/' + item._id
+                  ]"
+                  routerLinkActive="router-link-active"
+                  class="text-dark badge badge-pill badge-primary border-0"
+                  ><i class="fas fa-history"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #Loading>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <h6>
+            <i class="fas fa-spinner"></i>
+            Data not Found
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template> -->
+</div>
+<div class="card mt-2" *ngFor="let item of apiService.bidLists; let i = index">
+  {{ i + 1 }}
+  <div class="card-header" style="color: blue">
+    <h5>
+      {{ item.res.title | uppercase }} - {{ item.bidType | uppercase }} -
+      {{ item.betType | titlecase }}
+    </h5>
+  </div>
+  <div class="card-body">
+    <div class="row" style="margin-left: 15px">
+      <div class="col-6"><h6>Play On</h6></div>
+      <div class="col-6"><h6>Play For</h6></div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6">
+        <small>
+          {{ item.created_at | date: 'y/MM/dd, h:mm a' }}
+        </small>
+      </div>
+      <div class="col-6">
+        <small> {{ item.slot.bidDate }} / {{ item.slot.bidTime }} </small>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-4"><h6>Bid ID</h6></div>
+      <div class="col-4"><h6>Digit</h6></div>
+      <div class="col-4"><h6>Point</h6></div>
+    </div>
+    <div class="row mt-2" style="color: blue">
+      <div class="col-4">
+        {{ item.transactionId ? item.transactionId : '' }}
+      </div>
+      <div class="col-4" *ngIf="item.betType == 'full-sangam'">
+        {{ item.userInput.openPanna ? item.userInput.openPanna : '***' }} -{{
+          item.userInput.closePanna ? item.userInput.closePanna : '***'
+        }}
+      </div>
+      <div class="col-4" *ngIf="item.betType == 'half-sangam'">
+        <span *ngIf="item.userInputType == 'open patti close digit'">
+          {{ item.userInput.openPanna ? item.userInput.openPanna : '***' }} -{{
+            item.userInput.closeDigit ? item.userInput.closeDigit : '*'
+          }}</span
+        >
+        <span *ngIf="item.userInputType == 'open digit close patti'">
+          {{ item.userInput.openDigit ? item.userInput.openDigit : '*' }} -{{
+            item.userInput.closePanna ? item.userInput.closePanna : '***'
+          }}</span
+        >
+      </div>
+      <div
+        class="col-4"
+        *ngIf="item.betType !== 'full-sangam' && item.betType != 'half-sangam'"
+      >
+        {{
+          item.userInput.userInputValue
+            ? item.userInput.userInputValue
+            : item.userInput.userInputValue
+        }}
+      </div>
+      <div class="col-4">{{ item.bidAmount }}</div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6 p-0">
+        <table class="table">
+          <th>Digit Type:</th>
+          <td class="p-0">
+            <small>
+              {{ item.betType }}
+            </small>
+          </td>
+        </table>
+      </div>
+      <div class="col-6 p-0">
+        <table class="table">
+          <th>Bid Time</th>
+          <td>
+            <small>
+              {{ item.slot.bidDate }}
+            </small>
+          </td>
+        </table>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col text-center">
+        <p *ngIf="item.bidStatus == 'Winner'">
+          <b>Wining Amount -</b> {{ item.winingAmount }}
+        </p>
+        <p>
+          <b>
+            {{
+              item.bidStatus == 'pending'
+                ? 'Please Wait!! 🙂'
+                : item.bidStatus == 'Winner'
+                ? 'Congratulation!! 😎'
+                : 'Better Luck Next Time!! 😯'
+            }}
+          </b>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

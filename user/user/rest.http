@@ -1,0 +1,40 @@
+GET  http://localhost:3100
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDkzOTkwNTQsImV4cCI6MTYwOTM5OTA2OSwiYXVkIjoiNWZlYjA2N2RjMmVkMWEyYTg0ZjBiZDFlIiwiaXNzIjoiIn0.VitQQhGCav849I91bhPL9hEhjZpmc6XBsEdAFzGlGxI
+
+###Login Route
+POST  http://localhost:3100/auth/login
+Content-Type: application/json
+
+{
+    "mobile":"9876543210",
+    "password":"12345"
+}
+
+###register Route
+POST  http://localhost:3100/auth/register
+Content-Type: application/json
+
+{
+  "first_name":"Dheerandra",
+  "last_name":"Nema",
+  "email": "dnema@gmail.com",
+  "username":"dnema",
+  "mobile":"9876543210",
+  "password": "123456"
+}
+
+###refresh token Route
+POST  http://localhost:3100/auth/refresh-token
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDkzOTkxMTYsImV4cCI6MTY0MDk1NjcxNiwiYXVkIjoiNWZlYjA2N2RjMmVkMWEyYTg0ZjBiZDFlIiwiaXNzIjoiIn0.RQtabOxxLWa3zdmvaDXLGDNcGuzsBIIbUGqT-zb4igk"
+}
+
+###logout Route
+DELETE http://localhost:3100/auth/logout
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDkzOTkwNTQsImV4cCI6MTY0MDk1NjY1NCwiYXVkIjoiNWZlYjA2N2RjMmVkMWEyYTg0ZjBiZDFlIiwiaXNzIjoiIn0.bWtPfZp-uIixcTT9gC38Y4dY-JDa4LokMt0e_nsGnl0"
+}

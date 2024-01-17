@@ -1,0 +1,49 @@
+<div class="card">
+  <div class="card-header text-center">
+    <h5>Wallet</h5>
+  </div>
+  <div
+    class="card-body"
+    *ngIf="EventService.manualSinglePayment.status === 'Pending'"
+  >
+    <div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="status">Status Update</label>
+            <select
+              class="form-control"
+              name="status"
+              id="status"
+              [(ngModel)]="status"
+              required
+            >
+              <option value="">--Select--</option>
+              <option value="Failed">Failed</option>
+              <option value="Approved">Approved</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button
+            class="btn btn-primary"
+            [disabled]="!status"
+            (click)="StatusUpdate()"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="card-body"
+    *ngIf="EventService.manualSinglePayment.status !== 'Pending'"
+  >
+    <div class="alert alert-danger">
+      Payment Status : {{ EventService.manualSinglePayment.status }}
+    </div>
+  </div>
+</div>

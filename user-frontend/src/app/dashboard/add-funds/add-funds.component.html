@@ -1,0 +1,121 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="text-center">
+      <i class="fas fa-rupee-sign"></i>
+      Payment
+      <button
+        class="badge badge-pill badge-primary border-0 float-right"
+        (click)="back()"
+      >
+         <i class="lni lni-arrow-left"></i>
+      </button>
+    </h4>
+  </div>
+  <!-- <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h4 class="text-center text-danger">
+          For Add Fund Related Query's Call or Whatsapp
+        </h4>
+        <p class="text-center">
+          <a class="badge badge-pill badge-primary border-0"
+            ><i class="fas fa-phone-volume"></i
+          ></a>
+          123456789
+        </p>
+        <hr />
+        <p class="text-center">
+          Payment add karne ke 5 minute ke <br />andar apke wallet me
+          <br />points add ho jayenge.<br />Please wait..
+          <br />
+          "Your money is always safe with our app"
+        </p>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col">
+        <h5 class="text-center">You can pay with QR CODE</h5>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col">
+        <img
+          src="assets/images/code/barcode.jpeg"
+          alt="bardcode"
+          class="w-90 h-70"
+        />
+      </div>
+    </div>
+    <div class="row mt-4 text-center">
+      <div class="col">
+        <p class="">You can pay also with UPI</p>
+        <h5
+          class="mt-2"
+          style="font-family: 'Font Awesome 5 Free'; color: crimson"
+        >
+          9229224040@okizaxis
+        </h5>
+        <hr />
+        <p class="">Please Pay minimum Amount 500</p>
+        <hr />
+        <button
+          class="btn btn-primary btn-rounded"
+          [routerLink]="['/portal/dashboard/payment-web']"
+          routerLinkActive="router-link-active"
+        >
+          Upload Reciept
+        </button>
+      </div>
+    </div>
+  </div> -->
+  <div class="card-body">
+    <form (ngSubmit)="checkOut(form)" #form="ngForm">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="UPI">Enter UPI Id</label>
+            <input
+              type="text"
+              class="form-control"
+              name="upiId"
+              id="upiId"
+              [(ngModel)]="upiId"
+              minlength="3"
+              required
+              aria-describedby="helpId"
+              placeholder="Enter Upi for Wallet"
+            />
+            <small id="helpId" class="form-text text-muted"
+              >Enter UPI Id </small
+            >
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input
+              type="amount"
+              class="form-control"
+              name="amount"
+              id="amount"
+              [(ngModel)]="amount"
+              minlength="1"
+              required
+              aria-describedby="helpId"
+              placeholder="Enter Amount for Wallet"
+            />
+            <small id="helpId" class="form-text text-muted"
+              >Enter Amount for Wallet</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-auto">
+          <button class="btn btn-primary" [disabled]="form.invalid">Pay</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

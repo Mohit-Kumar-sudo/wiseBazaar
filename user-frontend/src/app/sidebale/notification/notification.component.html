@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-body">
+    <dl *ngFor="let item of api.notificationData" class="mt-2 mb-2">
+      <dt>{{ item.title }}</dt>
+      <dd>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-{{
+          item.desc
+        }}
+      </dd>
+      <hr />
+    </dl>
+  </div>
+</div>

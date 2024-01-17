@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="text-center">
+      <i class="fas fa-users"></i>
+      Users
+      <button
+         class="badge badge-pill border-0 float-right"
+        routerLink="/portal/user/list"
+      >
+        <i class="fas fa-user-plus"></i>
+      </button>
+    </h4>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="amount">Add Fund</label>
+          <input
+            type="number"
+            class="form-control"
+            name="amount"
+            id="amount"
+            [(ngModel)]="amount"
+            aria-describedby="amounthelpId"
+            placeholder="Enter Fund"
+          />
+          <small id="amounthelpId" class="form-text text-muted"
+            >Enter Fund</small
+          >
+        </div>
+      </div>
+      <div class="col-auto">
+        <button type="button" (click)="updateFund()" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

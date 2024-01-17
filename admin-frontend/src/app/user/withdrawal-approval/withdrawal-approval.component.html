@@ -1,0 +1,117 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="text-center">
+      Approval
+    </h4>
+  </div>
+  <div class="card-body">
+    <form
+      (ngSubmit)="withdrawalApproval(withdrawalApprovalform)"
+      #withdrawalApprovalform="ngForm"
+    >
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="status">User Request</label>
+            <select name="status" id="status" [(ngModel)]="status" class="form-control">
+              <option value="">--Select--</option>
+              <option value="Approved">Approved</option>
+              <option value="Failed">Failed</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="status == 'Approved'">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="paydate">Payment Date</label>
+            <input
+              type="date"
+              class="form-control"
+              name="payDate"
+              id="payDate"
+              ngModel
+              aria-describedby="paydatehelpId"
+              placeholder="Enter Payment Date"
+              required
+            />
+            <small id="paydatehelpId" class="form-text text-muted"
+              >Enter Payment Date</small
+            >
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="payTime">Payment Time</label>
+            <input
+              type="time"
+              class="form-control"
+              name="payTime"
+              ngModel
+              id="payTime"
+              aria-describedby="payTimehelpId"
+              placeholder="Enter Payment Time"
+              required
+            />
+            <small id="payTimehelpId" class="form-text text-muted"
+              >Enter Payment Time</small
+            >
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="payAmount"
+              >Payment Amount -
+              <span class="badge badge-pill badge-primary">
+                {{ withAmount }}
+              </span></label
+            >
+            <input
+              type="number"
+              class="form-control"
+              name="payAmount"
+              ngModel
+              id="payAmount"
+              min="500"
+              aria-describedby="payAmounthelpId"
+              placeholder="Enter Payment Amount"
+              required
+            />
+            <small id="helpId" class="form-text text-muted"
+              >Plese Enter Payment Amount</small
+            >
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="transactionId">Transaction ID</label>
+            <input
+              type="text"
+              class="form-control"
+              name="transactionId"
+              ngModel
+              id="transactionId"
+              min="500"
+              aria-describedby="transactionIdhelpId"
+              placeholder="Enter Transaction ID"
+              required
+            />
+            <small id="transactionIdhelpId" class="form-text text-muted"
+              >Plese Enter Transaction ID</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 mt-3">
+          <button
+            class="btn btn-danger btn-rounded"
+            [disabled]="withdrawalApprovalform.form.invalid"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>BetWise- ADMIN</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+    rel="icon"
+    type="image/x-icon"
+    href="assets/images/icon.png"
+  />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+    />
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/demo_1/style.css" />
+  </head>
+  <body onresize="foldedChange()">
+    <app-root></app-root>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+    <script>
+      function foldedChange() {
+        const body = document.getElementsByTagName('body');
+        body[0].classList.remove('sidebar-folded');
+      }
+    </script>
+    <script src="https://cdn.ckeditor.com/4.9.2/full-all/ckeditor.js"></script>
+    <script type="text/javascript">
+      // Enable local "abbr" plugin from /myplugins/abbr/ folder.
+      CKEDITOR.plugins.addExternal(
+        'eqneditor',
+        '/assets/eqneditor/',
+        'plugin.js'
+      );
+
+      // extraPlugins needs to be set too.
+      // CKEDITOR.replace( 'editor1', {
+      //         extraPlugins: 'eqneditor'
+      // } );
+    </script>
+  </body>
+</html>

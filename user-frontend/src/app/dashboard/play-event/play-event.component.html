@@ -1,0 +1,150 @@
+<div class="card">
+  <div class="card-header text-center bg-dark text-capitalize text-light">
+    <h5>
+      {{ title | uppercase }}
+      <button
+        class="badge badge-pill badge-primary border-0 float-right"
+        (click)="back()"
+      >
+         <i class="lni lni-arrow-left"></i>
+      </button>
+    </h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-6">
+        <div class="card text-center mt-0 mb-3">
+          <div class="card-body">
+            <a
+              class="text-dark"
+              [routerLink]="[
+                '/portal/dashboard/single-ank/single-ank/' + id + '/' + title
+              ]"
+            >
+              <div class="col-auto">
+                <i class="fas fa-dice-one fa-2x"></i>
+                <h5>Single Ank</h5>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6" *ngIf="apiService.event.bid_enable">
+        <div class="card text-center mt-0 mb-3">
+          <a
+            class="text-dark"
+            [routerLink]="['/portal/dashboard/jodi/jodi/' + id + '/' + title]"
+          >
+            <div class="card-body">
+              <div class="col-auto">
+                <i class="fas fa-dice fa-2x"></i>
+                <h5>Jodi</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card text-center mt-0 mb-3">
+          <a
+            class="text-dark"
+            [routerLink]="[
+              '/portal/dashboard/single-patti/single-patti/' + id + '/' + title
+            ]"
+          >
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <i class="fas fa-heart fa-2x"></i>
+                  <h5>Single Patti</h5>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card text-center mt-0 mb-3">
+          <a
+            class="text-dark"
+            [routerLink]="[
+              '/portal/dashboard/double-patti/double-patti/' + id + '/' + title
+            ]"
+          >
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <i class="fas fa-heart fa-2x"></i>
+                  <i class="fas fa-heart fa-2x"></i>
+                  <h5>Double Patti</h5>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card text-center mt-0 mb-3">
+          <a
+            class="text-dark"
+            [routerLink]="[
+              '/portal/dashboard/tripple-patti/tripple-patti/' +
+                id +
+                '/' +
+                title
+            ]"
+          >
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <i class="fas fa-spa fa-2x"></i>
+                  <h5>Tripple Patti</h5>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-6" *ngIf="apiService.event.bid_enable">
+        <div class="card text-center mt-0 mb-3">
+          <a
+            class="text-dark"
+            [routerLink]="[
+              '/portal/dashboard/half-sangam/half-sangam/' + id + '/' + title
+            ]"
+          >
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <i class="fas fa-star-half-alt fa-2x"></i>
+                  <h5>Half Sangam</h5>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-3"></div>
+      <div class="col-6" *ngIf="apiService.event.bid_enable">
+        <div class="card text-center mt-0 mb-3">
+          <a
+            class="text-dark"
+            [routerLink]="[
+              '/portal/dashboard/full-sangam/full-sangam/' + id + '/' + title
+            ]"
+          >
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <i class="fas fa-star fa-2x"></i>
+                  <h5>Full Sangam</h5>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </div>
+  </div>
+</div>

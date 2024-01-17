@@ -1,0 +1,9 @@
+#payu-payment-form button[type=submit] {
+    border: 0px !important;
+    height: 35px !important;
+    width: 210px !important;
+    background: url('http://static.payu.com/pl/standard/partners/buttons/payu_account_button_long_03.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
