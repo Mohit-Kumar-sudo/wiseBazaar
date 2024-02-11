@@ -1,6 +1,6 @@
 {
     "apiUrls": {
-        "baseUrl": "http://34.93.200.81/apiv2",
+        "baseUrl": "http://34.131.194.64/apiv2",
         "authUrl": "auth/login",
         "authPinUrl": "auth/loginByPin",
         "registerUrl": "auth/register",
