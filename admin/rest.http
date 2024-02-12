@@ -11,16 +11,16 @@ Content-Type: application/json
 }
 
 ###register Route
-POST  http://35.154.176.14:3000/apiv1/auth/register
+POST  http://34.131.194.64/apiv1/auth/register
 Content-Type: application/json
 
 {
-  "first_name":"STMT",
-  "last_name":"ADMIN",
+  "first_name":"wise",
+  "last_name":"Bazar",
   "role":"admin",
-  "username":"mtadmin",
+  "username":"wbadmin",
   "mobile":"9229224041",
-  "password": "@mtadmin$321#"
+  "password": "wbadmin$321#"
 }
 
 ###refresh token Route

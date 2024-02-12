@@ -1,6 +1,6 @@
 {
   "apiUrls": {
-    "baseUrl": "http://34.93.200.81/apiv1",
+    "baseUrl": "http://34.131.194.64/apiv1",
     "authUrl": "auth/login",
     "createUserUrl": "user/register",
     "deleteUserUrl": "user/deleteDataById",

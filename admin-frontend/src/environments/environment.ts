@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  url: "//" + window.location.hostname + ":3000"
-};
+  //   url: "//" + window.location.hostname + ":3000"
+  url: 'http://34.131.194.64/apiv1',
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
