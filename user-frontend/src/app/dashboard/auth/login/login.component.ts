@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AlertService } from 'src/app/services/alert.service';
-import { AuthService } from 'src/app/services/auth.service';
-import { ConfigService } from 'src/app/services/config.service';
-import { TokenService } from 'src/app/services/token.service';
+import { Component, OnInit } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { Router } from "@angular/router";
+import { AlertService } from "src/app/services/alert.service";
+import { AuthService } from "src/app/services/auth.service";
+import { ConfigService } from "src/app/services/config.service";
+import { TokenService } from "src/app/services/token.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
   viaPin = false;
@@ -64,10 +64,10 @@ export class LoginComponent implements OnInit {
             if (res.success) {
               this.alertServices.successToast(res.msg);
               this.token.setToken(res.accessToken, res.refreshToken);
-              localStorage.setItem('user', JSON.stringify(res.user));
-              this.router.navigate(['/portal']);
+              localStorage.setItem("user", JSON.stringify(res.user));
+              this.router.navigate(["/portal"]);
             } else {
-              this.alertServices.errorToast('Enter valid details');
+              this.alertServices.errorToast("Enter valid details");
             }
           });
       } else {
@@ -81,15 +81,15 @@ export class LoginComponent implements OnInit {
             if (res.success) {
               this.alertServices.successToast(res.msg);
               this.token.setToken(res.accessToken, res.refreshToken);
-              localStorage.setItem('user', JSON.stringify(res.user));
-              this.router.navigate(['/portal']);
+              localStorage.setItem("user", JSON.stringify(res.user));
+              this.router.navigate(["/portal"]);
             } else {
-              this.alertServices.errorToast('Enter valid details');
+              this.alertServices.errorToast("Enter valid details");
             }
           });
       }
     } else {
-      this.alertServices.errorToast('Please fill all the details Properly!');
+      this.alertServices.errorToast("Please fill all the details Properly!");
     }
   }
 }

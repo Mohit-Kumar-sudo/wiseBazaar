@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
     setTimeout(() => {
       this.getUserWallet();
     }, 1000);
+    console.log(this.userId);
   }
 
   ngOnInit(): void {
@@ -44,6 +45,7 @@ export class DashboardComponent implements OnInit {
     );
     setTimeout(() => {
       this.userWallet = this.apiService.user.wallet;
+      localStorage.setItem('user', JSON.stringify(this.apiService.user));
     }, 2000);
   }
 
