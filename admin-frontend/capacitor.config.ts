@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.stmtadmin.stmt',
-  appName: 'stmtAdmin',
+  appId: 'com.wisebazar.bw',
+  appName: 'WiseBazar',
   webDir: 'www',
   bundledWebRuntime: false
 };
